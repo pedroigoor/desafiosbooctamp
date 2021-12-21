@@ -1,0 +1,10 @@
+.buttom-content button{
+  background-color: #00285F;
+  color:  #FFFFFF;
+  border-radius: 0px 5px 5px 0px;
+ 
+}
+
+.input-buttom{
+  border-radius: 5px 0px 0px 5px;
+}
