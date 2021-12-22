@@ -1,4 +1,5 @@
 import CarHome from 'assets/images/car-home.png';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -23,9 +24,11 @@ function Home() {
         </div>
 
         <div className="home-bottom-container">
-          <button className="button-catalog">
-            <h6>VER CATÁLOGO</h6>
-          </button>
+          <Link to="/cars">
+            <button className="button-catalog">
+              <h6>VER CATÁLOGO</h6>
+            </button>
+          </Link>
           <p>Comece agora a navegar</p>
         </div>
       </div>

@@ -1,8 +1,15 @@
-
-.catalog-container{
-    padding: 20px 10px;
+.catalog-container {
+  padding: 20px 19px 0 10px;
 }
-.catalog-content{
-    padding: 20px 14px 0 14px;
+.catalog-content {
+  padding: 20px 14px 10px 14px;
+}
 
+@media (min-width: 1280px) {
+
+  .catalog-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
 }
