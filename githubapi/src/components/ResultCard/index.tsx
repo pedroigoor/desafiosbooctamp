@@ -1,27 +1,39 @@
+import { Profile } from 'types/profile';
 import './styles.css';
 
 type Props = {
-  title: string;
-  description: string;
+  profile: Profile;
 };
 
-const ResultCard = ({ title, description }: Props) => {
+const ResultCard = ({ profile }: Props) => {
   return (
     <div className="container profile-container">
       <div className="profile-container-top">
-        <img
-          src="https://avatars.githubusercontent.com/u/17938614?v=4"
-          alt=""
-        />
+        <img src={profile?.avatar_url} alt={profile?.name} />
       </div>
 
       <div className="row profile-container-bottom">
-        <div className="col-12"> Infromaçõos</div>
-        <div className="col-12"> https://api.github.com/users/pedroigoor</div>
-        <div className="col-12">2</div>
+        <h2>Informações</h2>
 
-        <div className="col-12">Olinda,PE,Brazil</div>
-        <div className="col-12">Pedro Almeida</div>
+        <div className="col-12">
+          <span>Perfil: </span>
+          {profile?.url}
+        </div>
+        <div className="col-12">
+          <span>Seguidores: </span>
+          {profile?.followers}
+        </div>
+
+        <div className="col-12">
+          {' '}
+          <span>Localidade: </span>
+          {profile?.location}
+        </div>
+        <div className="col-12">
+          {' '}
+          <span>Nome: </span>
+          {profile?.name}
+        </div>
       </div>
     </div>
   );

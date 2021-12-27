@@ -2,22 +2,14 @@ import { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 import ResultCard from 'components/ResultCard';
+import { Profile } from 'types/profile';
 
 type FormData = {
   user: string;
 };
 
-type Profile = {
-  url: string;
-  followers: number;
-  location: string;
-  name: string;
-  avatar_url: string;
-};
-
 const GitSearch = () => {
   const [profile, setProfile] = useState<Profile>();
-
   const [formData, setFormData] = useState<FormData>({
     user: '',
   });
@@ -30,12 +22,10 @@ const GitSearch = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     axios
       .get(`https://api.github.com/users/${formData.user}`)
       .then((response) => {
         setProfile(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         setProfile(undefined);
@@ -63,8 +53,8 @@ const GitSearch = () => {
             </div>
           </form>
         </div>
+        {profile && <ResultCard profile={profile} />}
       </div>
-      <ResultCard title="Logradouro" description="s" />
     </>
   );
 };
