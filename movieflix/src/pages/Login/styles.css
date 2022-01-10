@@ -1,0 +1,69 @@
+.login-card {
+  padding: 20px;
+  font-size: 16px;
+  margin: 10px 12px;
+}
+
+.login-card h1 {
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 49px;
+text-align: center;
+letter-spacing: -0.015em;
+margin-bottom: 20px;
+margin-top: 59px;
+
+color: #FFFFFF;
+}
+
+.auth-banner-container {
+  display: none;
+}
+
+ 
+@media (min-width: 576px) {
+  .login-card {
+    width: 479px;
+    height: 573px;
+    
+  }
+  .login-container{
+    display: flex;
+    justify-content: center;
+    padding: 40px 48px;
+  }
+}
+
+@media (min-width: 1200px) {
+ 
+
+  .auth-banner-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    width: 365px;
+  }
+
+  .auth-banner-container h1 {
+    font-size: 48px;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+  }
+  .auth-banner-container p {
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: #F2F2F2;
+  }
+
+  .auth-banner-container svg {
+    width: 100%;
+    height: 100%;
+  }
+  .login-container{
+
+    justify-content: space-around;
+ 
+  }
+}

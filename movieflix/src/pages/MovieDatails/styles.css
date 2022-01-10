@@ -1,0 +1,68 @@
+.movie-datail-conteiner,
+.movie-datail-content {
+  padding: 10px;
+}
+
+.movie-datail-list-reviews {
+  margin-top: 18px;
+}
+
+.movie-datail-conteiner h1 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: -0.015em;
+
+  color: #ffffff;
+
+  mix-blend-mode: normal;
+}
+
+.movie-datail-img {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.movie-datail-img img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.movie-datail-review {
+  padding: 10px;
+}
+.movie-datail-review input {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.review-submit {
+  display: flex;
+  justify-content: center;
+}
+.review-submit button {
+  width: 100%;
+  margin: 0;
+}
+@media (min-width: 576px) {
+  .review-submit button {
+    max-width: 334px;
+  }
+}
+
+@media (min-width: 992px) {
+  .movie-datail-img img {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .movie-datail-img img {
+    height: 280px;
+    width: auto;
+  }
+  .movie-datail-conteiner {
+    padding: 40px;
+  }
+}

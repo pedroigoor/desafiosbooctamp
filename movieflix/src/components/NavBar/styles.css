@@ -1,0 +1,43 @@
+.main-nav {
+  padding-left: 18px;
+  min-height: 70px;
+  align-items: center;
+}
+
+.nav-logo-text {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  /* identical to box height */
+
+  letter-spacing: -0.015em;
+
+  color: #000000;
+}
+
+.nav-logo-text:hover {
+  color: #000000;
+}
+
+.nav-exit {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 4px;
+  cursor: pointer;
+}
+.nav-exit h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.015em;
+  color: #000000;
+  mix-blend-mode: normal;
+}
