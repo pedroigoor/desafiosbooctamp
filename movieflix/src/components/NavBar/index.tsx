@@ -39,6 +39,7 @@ const NavBar = () => {
         </Link>
         
         {authContextData.authenticated ? (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a className="nav-exit" onClick={handleLogoutClick}>
             <h1> Sair</h1>
           </a>

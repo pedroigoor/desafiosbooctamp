@@ -8,6 +8,7 @@ import "./styles.css";
 import ButtonIcon from "./../../components/ButtonIcon/index";
 import ListReview from "./../../components/ListReview/index";
 import { hasAnyRoles } from "./../../util/auth";
+import { toast } from "react-toastify";
 
 type UrlParams = {
   movieId: string;
@@ -38,7 +39,6 @@ const MovieDatails = () => {
   }, [movieId]);
 
   const onSubmit = (formData: FormData) => {
-
     const params: AxiosRequestConfig = {
       method: "POST",
       url: `/reviews`,
@@ -49,48 +49,69 @@ const MovieDatails = () => {
       },
     };
 
-    requestBackend(params).then((response) => {  
-      window.location.reload()
+    requestBackend(params).then((response) => {
+  
+        toast.success('Avaliação realizada!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          });
+         
+      
+    }).finally(()=>{
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+      
     });
   };
 
   return (
-    <div className="movie-datail-conteiner">
-      <h1>Detalhes do filme: {movie?.title} </h1>
-      <div className="movie-datail-content">
+    <div className="container  movie-datail-conteiner">
+      <div className=" base-card movie-datail-content">
         <div className=" movie-datail-img">
           <img src={movie?.imgUrl} alt={movie?.title} />
         </div>
-        {hasAnyRoles(["ROLE_MEMBER"]) && (
-          <div className="movie-datail-review base-card  row">
-            <div className="mb-4">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                  {...register("review", {
-                    required: "Campo obrigatório",
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.review ? "is-invalid" : ""
-                  }`}
-                  placeholder="Deixe sua avaliação"
-                  name="review"
-                />
-                <div className="invalid-feedback d-block">
-                  {errors.review?.message}
-                </div>
-
-                  <div className="review-submit">
-                    <ButtonIcon text="SALVAR AVALIAÇÃO" />
-                  </div>
-                
-              </form>
-            </div>
-          </div>
-        )}
-        <div className="movie-datail-list-reviews base-card  row">
-          {movie && <ListReview movieId={movie?.id}></ListReview>}
+        <div className="movie-datail-container-text">
+          <h1>{movie?.title}</h1>
+          <h2>{movie?.year}</h2>
+          <p className="movie-datail-container-text-subTitle">{movie?.subTitle}</p>
+          <p className="movie-datail-container-text-synopsis">{movie?.synopsis}</p>
         </div>
+      </div>
+
+      {hasAnyRoles(["ROLE_MEMBER"]) && (
+        <div className="movie-datail-review base-card">
+          <div className="mb-4">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                {...register("review", {
+                  required: "Campo obrigatório",
+                })}
+                type="text"
+                className={`form-control base-input ${
+                  errors.review ? "is-invalid" : ""
+                }`}
+                placeholder="Deixe sua avaliação"
+                name="review"
+              />
+              <div className="invalid-feedback d-block">
+                {errors.review?.message}
+              </div>
+
+              <div className="review-submit">
+                <ButtonIcon text="SALVAR AVALIAÇÃO" />
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+      <div className="movie-datail-list-reviews base-card ">
+        {movie && <ListReview movieId={movie?.id}></ListReview>}
       </div>
     </div>
   );
